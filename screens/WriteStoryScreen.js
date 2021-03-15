@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, TouchableOpacity, TextInput, Image, StyleSheet, ToastAndroid} from 'react-native';
+import { Text, View, TouchableOpacity, TextInput, Image, StyleSheet, KeyboardAvoidingView} from 'react-native';
 import { Header } from 'react-native-elements';
 import * as firebase from 'firebase';
 import db from '../config.js'
@@ -15,7 +15,7 @@ export default class WriteStoryScreen extends React.Component {
     }
   }
   submitStory=()=>{
-    db.collection("storytime").add({
+    db.collection("storytime").doc("story").add({
       author : this.state.Author,
       title : this.state.StoryTitle,
       story : this.state.Story,
